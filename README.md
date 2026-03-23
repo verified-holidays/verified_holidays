@@ -1,7 +1,7 @@
 # VerifiedHolidays
 
-[![Test](https://github.com/55728/verified_holidays/actions/workflows/test.yml/badge.svg)](https://github.com/55728/verified_holidays/actions/workflows/test.yml)
-[![Weekly Verification](https://github.com/55728/verified_holidays/actions/workflows/verify.yml/badge.svg)](https://github.com/55728/verified_holidays/actions/workflows/verify.yml)
+[![Test](https://github.com/verified-holidays/verified_holidays/actions/workflows/test.yml/badge.svg)](https://github.com/verified-holidays/verified_holidays/actions/workflows/test.yml)
+[![Weekly Verification](https://github.com/verified-holidays/verified_holidays/actions/workflows/verify.yml/badge.svg)](https://github.com/verified-holidays/verified_holidays/actions/workflows/verify.yml)
 [![Gem Version](https://badge.fury.io/rb/verified_holidays.svg)](https://badge.fury.io/rb/verified_holidays)
 
 Japanese national holiday gem with **weekly verification against the Cabinet Office official data**.
@@ -103,7 +103,7 @@ The data is provided under the terms of the [Government of Japan Standard Terms 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/55728/verified_holidays.
+Bug reports and pull requests are welcome on GitHub at https://github.com/verified-holidays/verified_holidays.
 
 ## License
 

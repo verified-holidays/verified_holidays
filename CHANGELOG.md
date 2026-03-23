@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.1.1] - 2026-03-23
+
+- Move repository to GitHub Organization: `verified-holidays/verified_holidays`
+- Update all repository URLs in gemspec, README badges, and contributing link
+
 ## [0.1.0] - 2026-03-20
 
 - Initial release as `verified_holidays` (previously developed as `shukujitsu`)

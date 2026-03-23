@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description   = 'A Japanese national holiday gem that verifies its built-in data against ' \
                        'the Cabinet Office official CSV every week. ' \
                        'Provides holiday?, between, name, and year methods with English name support.'
-  spec.homepage      = 'https://github.com/55728/verified_holidays'
+  spec.homepage      = 'https://github.com/verified-holidays/verified_holidays'
   spec.license       = 'MIT'
 
   spec.required_ruby_version = '>= 3.1'
