@@ -1,5 +1,29 @@
 # Changelog
 
+## [0.3.0](https://github.com/verified-holidays/verified_holidays/compare/verified_holidays-v0.2.2...verified_holidays/v0.3.0) (2026-03-29)
+
+
+### Features
+
+* auto-publish gem to RubyGems via Trusted Publishers ([#15](https://github.com/verified-holidays/verified_holidays/issues/15)) ([d4b5fd5](https://github.com/verified-holidays/verified_holidays/commit/d4b5fd5c3ea29fb089527ca9c99ca23668b6734b))
+
+
+### Bug Fixes
+
+* add bundler/gem_tasks to Rakefile for automated gem release ([#17](https://github.com/verified-holidays/verified_holidays/issues/17)) ([3936c18](https://github.com/verified-holidays/verified_holidays/commit/3936c185dc0b1503ad175071a2ed17a8342b692a))
+* correct Qlty coverage action parameters and enable OIDC auth ([#22](https://github.com/verified-holidays/verified_holidays/issues/22)) ([54a5368](https://github.com/verified-holidays/verified_holidays/commit/54a53686ac8f2616b3a777c136fa2df74a746c1c))
+
+
+### Miscellaneous
+
+* add auto-assign workflow for pull requests ([#14](https://github.com/verified-holidays/verified_holidays/issues/14)) ([a09ac2e](https://github.com/verified-holidays/verified_holidays/commit/a09ac2e7b432c56fad6899ba0d32f24a86a91feb))
+* harden GitHub Actions workflows and add README badges ([#19](https://github.com/verified-holidays/verified_holidays/issues/19)) ([78cc527](https://github.com/verified-holidays/verified_holidays/commit/78cc527773a50a7b017324c0e07342aaf9a22401))
+* introduce release-please for automated releases ([#12](https://github.com/verified-holidays/verified_holidays/issues/12)) ([6690b1b](https://github.com/verified-holidays/verified_holidays/commit/6690b1b355504ca794a950e1b8841b68f4e880fb))
+* **main:** release verified_holidays 0.1.5 ([#13](https://github.com/verified-holidays/verified_holidays/issues/13)) ([557c4cc](https://github.com/verified-holidays/verified_holidays/commit/557c4cce459e7128847339b8f6e28e686fc2477c))
+* **main:** release verified_holidays 0.2.0 ([#16](https://github.com/verified-holidays/verified_holidays/issues/16)) ([189b13d](https://github.com/verified-holidays/verified_holidays/commit/189b13d65c0c23b460fd377b85fc0f0d484a7582))
+* **main:** release verified_holidays 0.2.1 ([#18](https://github.com/verified-holidays/verified_holidays/issues/18)) ([bbbde5c](https://github.com/verified-holidays/verified_holidays/commit/bbbde5ca799fc84c900aff6c2db877fda20eae2d))
+* **main:** release verified_holidays 0.2.2 ([#20](https://github.com/verified-holidays/verified_holidays/issues/20)) ([5ff1e67](https://github.com/verified-holidays/verified_holidays/commit/5ff1e673b1ca73f9acd0e3c42ec0090c85680c47))
+
 ## [0.2.2](https://github.com/verified-holidays/verified_holidays/compare/verified_holidays/v0.2.1...verified_holidays/v0.2.2) (2026-03-29)
 
 
