@@ -31,8 +31,8 @@ module VerifiedHolidays
     def self.parse(csv_string)
       holidays = {}
       CSV.parse(csv_string, headers: true) do |row|
-        date_str = presence(row[0])
-        name = presence(row[1])
+        date_str = presence(row['国民の祝日・休日月日'])
+        name = presence(row['国民の祝日・休日名称'])
         next if date_str.nil? || name.nil?
 
         holidays[Date.strptime(date_str, '%Y/%m/%d')] = name
