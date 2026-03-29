@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/verified-holidays/verified_holidays/compare/verified_holidays/v0.1.5...verified_holidays/v0.2.0) (2026-03-29)
+
+
+### Features
+
+* auto-publish gem to RubyGems via Trusted Publishers ([#15](https://github.com/verified-holidays/verified_holidays/issues/15)) ([d4b5fd5](https://github.com/verified-holidays/verified_holidays/commit/d4b5fd5c3ea29fb089527ca9c99ca23668b6734b))
+
 ## [0.1.5](https://github.com/verified-holidays/verified_holidays/compare/verified_holidays-v0.1.4...verified_holidays/v0.1.5) (2026-03-29)
 
 
