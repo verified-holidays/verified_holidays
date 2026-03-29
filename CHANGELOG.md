@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.2](https://github.com/verified-holidays/verified_holidays/compare/verified_holidays/v0.2.1...verified_holidays/v0.2.2) (2026-03-29)
+
+
+### Miscellaneous
+
+* harden GitHub Actions workflows and add README badges ([#19](https://github.com/verified-holidays/verified_holidays/issues/19)) ([78cc527](https://github.com/verified-holidays/verified_holidays/commit/78cc527773a50a7b017324c0e07342aaf9a22401))
+
 ## [0.2.1](https://github.com/verified-holidays/verified_holidays/compare/verified_holidays/v0.2.0...verified_holidays/v0.2.1) (2026-03-29)
 
 
