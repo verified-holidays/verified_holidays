@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/verified-holidays/verified_holidays/compare/verified_holidays/v0.2.0...verified_holidays/v0.2.1) (2026-03-29)
+
+
+### Bug Fixes
+
+* add bundler/gem_tasks to Rakefile for automated gem release ([#17](https://github.com/verified-holidays/verified_holidays/issues/17)) ([3936c18](https://github.com/verified-holidays/verified_holidays/commit/3936c185dc0b1503ad175071a2ed17a8342b692a))
+
 ## [0.2.0](https://github.com/verified-holidays/verified_holidays/compare/verified_holidays/v0.1.5...verified_holidays/v0.2.0) (2026-03-29)
 
 
