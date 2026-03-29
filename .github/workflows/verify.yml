@@ -5,15 +5,22 @@ on:
     - cron: "0 0 * * 1"
   workflow_dispatch:
 
+permissions: {}
+
 jobs:
   verify:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5  # v4
+        with:
+          persist-credentials: false
 
       - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@3ff19f5e2baf30647122352b96108b1fbe250c64  # v1
         with:
           ruby-version: "3.3"
           bundler-cache: true
@@ -23,7 +30,7 @@ jobs:
 
       - name: Create issue on failure
         if: failure()
-        uses: actions/github-script@v7
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b  # v7
         with:
           script: |
             const title = `Holiday data verification failed (${new Date().toISOString().split('T')[0]})`;
