@@ -1,8 +1,12 @@
 name: Branch Labeler
 
+# This workflow uses pull_request_target intentionally.
+# It only adds labels based on branch name prefix — no checkout or code execution.
 on:
   pull_request_target:
     types: [opened]
+
+permissions: {}
 
 jobs:
   label:
@@ -10,7 +14,7 @@ jobs:
     permissions:
       pull-requests: write
     steps:
-      - uses: actions/github-script@v7
+      - uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b  # v7
         with:
           script: |
             const branch = context.payload.pull_request.head.ref;

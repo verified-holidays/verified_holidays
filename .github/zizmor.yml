@@ -1,0 +1,13 @@
+rules:
+  dangerous-triggers:
+    ignore:
+      - labeler.yml
+      - branch_labeler.yml
+      - auto_assign.yml
+  cache-poisoning:
+    ignore:
+      # ruby/setup-ruby bundler-cache on a public repo with branch-scoped caching.
+      # Risk is low: cache is only written on push to main, not from PRs.
+      - test.yml
+      - verify.yml
+      - release_please.yml
