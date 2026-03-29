@@ -23,11 +23,16 @@ module VerifiedHolidays
       parse(utf8)
     end
 
+    def self.presence(str)
+      str&.strip&.then { |s| s unless s.empty? }
+    end
+    private_class_method :presence
+
     def self.parse(csv_string)
       holidays = {}
       CSV.parse(csv_string, headers: true) do |row|
-        date_str = row[0]&.strip
-        name = row[1]&.strip
+        date_str = presence(row[0])
+        name = presence(row[1])
         next if date_str.nil? || name.nil?
 
         holidays[Date.strptime(date_str, '%Y/%m/%d')] = name

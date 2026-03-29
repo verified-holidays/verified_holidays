@@ -29,8 +29,7 @@ module VerifiedHolidays
     end
 
     def name(date)
-      holiday = @holidays[to_date(date)]
-      holiday&.name
+      @holidays[to_date(date)]&.name
     end
 
     def year(year)

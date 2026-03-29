@@ -71,4 +71,18 @@ class TestCabinetOffice < Minitest::Test
     result = VerifiedHolidays::CabinetOffice.parse(csv)
     assert_equal 0, result.size
   end
+
+  def test_parse_skips_rows_with_blank_date
+    csv = "国民の祝日・休日月日,国民の祝日・休日名称\n   ,元日\n2026/1/12,成人の日\n"
+    result = VerifiedHolidays::CabinetOffice.parse(csv)
+    assert_equal 1, result.size
+    assert_equal '成人の日', result[Date.new(2026, 1, 12)]
+  end
+
+  def test_parse_skips_rows_with_blank_name
+    csv = "国民の祝日・休日月日,国民の祝日・休日名称\n2026/1/1,   \n2026/1/12,成人の日\n"
+    result = VerifiedHolidays::CabinetOffice.parse(csv)
+    assert_equal 1, result.size
+    assert_equal '成人の日', result[Date.new(2026, 1, 12)]
+  end
 end
