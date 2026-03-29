@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.3] - 2026-03-29
+
+- Replace numeric index access with header name access in `CabinetOffice.parse`
+- Add Auto Release workflow
+- Add auto-labeler workflows (file path labeler + branch prefix labeler)
+
 ## [0.1.2] - 2026-03-29
 
 - Add SimpleCov with 90% minimum coverage threshold (line and branch)
