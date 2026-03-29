@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.1.2] - 2026-03-29
+
+- Add SimpleCov with 90% minimum coverage threshold (line and branch)
+- Add edge case tests for CSV parsing, Holiday model, Verifier, and main API
+- Inline `CabinetOffice.parse_date` using `Date.strptime`
+- Add `CabinetOffice.presence` to handle blank CSV fields
+- Use `minmax` in `Verifier.filter_local_data`
+- Simplify `Dataset#name` to one-liner
+
 ## [0.1.1] - 2026-03-23
 
 - Move repository to GitHub Organization: `verified-holidays/verified_holidays`
