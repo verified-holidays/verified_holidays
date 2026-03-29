@@ -27,9 +27,7 @@ module VerifiedHolidays
     end
 
     def self.filter_local_data(cabinet_data)
-      cabinet_dates = cabinet_data.keys
-      min_date = cabinet_dates.min
-      max_date = cabinet_dates.max
+      min_date, max_date = cabinet_data.keys.minmax
 
       Dataset.instance.all.select { |date, _| date.between?(min_date, max_date) }
     end
