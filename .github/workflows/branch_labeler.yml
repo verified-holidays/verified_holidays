@@ -1,0 +1,39 @@
+name: Branch Labeler
+
+on:
+  pull_request_target:
+    types: [opened]
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const branch = context.payload.pull_request.head.ref;
+            const prefixMap = {
+              'refactor/': 'refactor',
+              'feat/': 'enhancement',
+              'feature/': 'enhancement',
+              'fix/': 'bugfix',
+              'bugfix/': 'bugfix',
+              'chore/': 'chore',
+              'perf/': 'performance',
+              'deps/': 'dependencies',
+            };
+
+            for (const [prefix, label] of Object.entries(prefixMap)) {
+              if (branch.startsWith(prefix)) {
+                await github.rest.issues.addLabels({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: context.issue.number,
+                  labels: [label],
+                });
+                core.info(`Added label: ${label}`);
+                break;
+              }
+            }
