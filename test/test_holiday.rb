@@ -53,4 +53,9 @@ class TestHoliday < Minitest::Test
       assert_equal en, h.name_en, "Expected #{en} for #{ja}"
     end
   end
+
+  def test_name_en_returns_nil_for_unknown
+    h = VerifiedHolidays::Holiday.new(Date.new(2026, 1, 1), '不明な祝日')
+    assert_nil h.name_en
+  end
 end

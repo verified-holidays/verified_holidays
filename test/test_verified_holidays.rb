@@ -76,4 +76,27 @@ class TestVerifiedHolidays < Minitest::Test
     assert(holidays.all?(VerifiedHolidays::Holiday))
     assert(holidays.all? { |h| h.date.year == 2026 })
   end
+
+  def test_year_returns_empty_for_unknown_year
+    holidays = VerifiedHolidays.year(1800)
+    assert_equal [], holidays
+  end
+
+  def test_between_single_day_range
+    holidays = VerifiedHolidays.between(Date.new(2026, 1, 1), Date.new(2026, 1, 1))
+    assert_equal 1, holidays.size
+    assert_equal Date.new(2026, 1, 1), holidays.first.date
+  end
+
+  def test_holiday_p_raises_for_invalid_type
+    assert_raises(ArgumentError) { VerifiedHolidays.holiday?('2026-01-01') }
+  end
+
+  def test_between_raises_for_invalid_type
+    assert_raises(ArgumentError) { VerifiedHolidays.between('2026-01-01', '2026-01-31') }
+  end
+
+  def test_name_raises_for_invalid_type
+    assert_raises(ArgumentError) { VerifiedHolidays.name('2026-01-01') }
+  end
 end

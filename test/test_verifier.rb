@@ -46,15 +46,27 @@ class TestVerifier < Minitest::Test
     assert(result.extra.any? { |e| e[:name] == 'テスト祝日' })
   end
 
-  def test_missing_detected
-    # Cabinet Office CSV only has Jan 1, but our local data has more in that range
+  def test_missing_detected_single_date_range
+    # Cabinet Office CSV only has Jan 1, range is just that one day, so no missing
     csv = csv_from_entries([
                              ['2026/1/1', '元日'],
                            ])
     stub_cabinet_office(csv)
     result = VerifiedHolidays.verify!
-    # The range is only 2026-01-01 to 2026-01-01, so no missing
     assert result.valid?
+  end
+
+  def test_missing_detected_when_local_has_extra_in_range
+    # Cabinet CSV spans Jan 1 to Feb 11 but omits Jan 12 (成人の日).
+    # Local data has Jan 12 in that range, so it should be reported as missing from cabinet.
+    csv = csv_from_entries([
+                             ['2026/1/1', '元日'],
+                             ['2026/2/11', '建国記念の日'],
+                           ])
+    stub_cabinet_office(csv)
+    result = VerifiedHolidays.verify!
+    refute result.valid?
+    assert(result.missing.any? { |e| e[:date] == Date.new(2026, 1, 12) && e[:name] == '成人の日' })
   end
 
   def test_mismatched_name
