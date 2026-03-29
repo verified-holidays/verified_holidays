@@ -30,15 +30,9 @@ module VerifiedHolidays
         name = row[1]&.strip
         next if date_str.nil? || name.nil?
 
-        holidays[parse_date(date_str)] = name
+        holidays[Date.strptime(date_str, '%Y/%m/%d')] = name
       end
       holidays
     end
-
-    def self.parse_date(date_str)
-      parts = date_str.split('/')
-      Date.new(parts[0].to_i, parts[1].to_i, parts[2].to_i)
-    end
-    private_class_method :parse_date
   end
 end

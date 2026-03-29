@@ -31,6 +31,13 @@ class TestCabinetOffice < Minitest::Test
     assert_equal '元日', result[Date.new(2026, 1, 1)]
   end
 
+  def test_parse_raises_on_invalid_date_format
+    csv = "国民の祝日・休日月日,国民の祝日・休日名称\ninvalid,元日\n"
+    assert_raises(Date::Error) do
+      VerifiedHolidays::CabinetOffice.parse(csv)
+    end
+  end
+
   def test_fetch_handles_bom
     # BOM in CP932 is the bytes 0xEF 0xBB 0xBF (same as UTF-8 BOM when interpreted as raw bytes)
     csv_utf8 = "国民の祝日・休日月日,国民の祝日・休日名称\n2026/1/1,元日\n"
