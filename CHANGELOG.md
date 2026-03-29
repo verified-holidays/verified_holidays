@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.5](https://github.com/verified-holidays/verified_holidays/compare/verified_holidays-v0.1.4...verified_holidays/v0.1.5) (2026-03-29)
+
+
+### Miscellaneous
+
+* add auto-assign workflow for pull requests ([#14](https://github.com/verified-holidays/verified_holidays/issues/14)) ([a09ac2e](https://github.com/verified-holidays/verified_holidays/commit/a09ac2e7b432c56fad6899ba0d32f24a86a91feb))
+* introduce release-please for automated releases ([#12](https://github.com/verified-holidays/verified_holidays/issues/12)) ([6690b1b](https://github.com/verified-holidays/verified_holidays/commit/6690b1b355504ca794a950e1b8841b68f4e880fb))
+
 ## [0.1.4] - 2026-03-29
 
 - Fix file path labeler removing branch-based labels (sync-labels: false)
