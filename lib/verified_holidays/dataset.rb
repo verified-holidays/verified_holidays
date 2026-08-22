@@ -41,7 +41,7 @@ module VerifiedHolidays
     private
 
     def to_date(value)
-      # DateTime は Date のサブクラスだが、明示的に .to_date で Date に変換
+      # DateTime is a subclass of Date, so convert it explicitly with .to_date.
       return value.to_date if value.is_a?(DateTime) || value.is_a?(Time)
       return value if value.is_a?(Date)
 
