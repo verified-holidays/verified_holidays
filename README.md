@@ -54,11 +54,11 @@ VerifiedHolidays.year(2026)
 
 ```ruby
 holiday = VerifiedHolidays.between(Date.new(2026, 1, 1), Date.new(2026, 1, 1)).first
-holiday.date     # => #<Date: 2026-01-01>
-holiday.name     # => "元日"
-holiday.name_en  # => "New Year's Day"
-holiday.wday_name # => "Thursday"
-holiday.week     # => "Thursday" (alias for wday_name)
+holiday.date      # => #<Date: 2026-01-01>
+holiday.name      # => "元日"
+holiday.name_en   # => "New Year's Day"
+holiday.wday_name # => "木"
+holiday.week      # => "木" (alias for wday_name)
 ```
 
 ## Compatibility with holiday_jp
