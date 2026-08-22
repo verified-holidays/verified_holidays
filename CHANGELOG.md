@@ -91,39 +91,62 @@
 * add auto-assign workflow for pull requests ([#14](https://github.com/verified-holidays/verified_holidays/issues/14)) ([a09ac2e](https://github.com/verified-holidays/verified_holidays/commit/a09ac2e7b432c56fad6899ba0d32f24a86a91feb))
 * introduce release-please for automated releases ([#12](https://github.com/verified-holidays/verified_holidays/issues/12)) ([6690b1b](https://github.com/verified-holidays/verified_holidays/commit/6690b1b355504ca794a950e1b8841b68f4e880fb))
 
-## [0.1.4] - 2026-03-29
+## [0.1.4](https://github.com/verified-holidays/verified_holidays/compare/v0.1.3...v0.1.4) (2026-03-29)
 
-- Fix file path labeler removing branch-based labels (sync-labels: false)
 
-## [0.1.3] - 2026-03-29
+### Bug Fixes
 
-- Replace numeric index access with header name access in `CabinetOffice.parse`
-- Add Auto Release workflow
-- Add auto-labeler workflows (file path labeler + branch prefix labeler)
+* fix file path labeler removing branch-based labels (sync-labels: false) ([#10](https://github.com/verified-holidays/verified_holidays/issues/10)) ([d3068c7](https://github.com/verified-holidays/verified_holidays/commit/d3068c7c82e08924ee386367829029f3b7ebba59))
 
-## [0.1.2] - 2026-03-29
+## [0.1.3](https://github.com/verified-holidays/verified_holidays/compare/v0.1.2...v0.1.3) (2026-03-29)
 
-- Add SimpleCov with 90% minimum coverage threshold (line and branch)
-- Add edge case tests for CSV parsing, Holiday model, Verifier, and main API
-- Inline `CabinetOffice.parse_date` using `Date.strptime`
-- Add `CabinetOffice.presence` to handle blank CSV fields
-- Use `minmax` in `Verifier.filter_local_data`
-- Simplify `Dataset#name` to one-liner
 
-## [0.1.1] - 2026-03-23
+### Refactoring
 
-- Move repository to GitHub Organization: `verified-holidays/verified_holidays`
-- Update all repository URLs in gemspec, README badges, and contributing link
+* replace numeric index access with header name access in `CabinetOffice.parse` ([#6](https://github.com/verified-holidays/verified_holidays/issues/6)) ([1feb3b7](https://github.com/verified-holidays/verified_holidays/commit/1feb3b725d8f6e134ac2dcfe5de5d0171dc7f96f))
 
-## [0.1.0] - 2026-03-20
 
-- Initial release as `verified_holidays` (previously developed as `shukujitsu`)
-- `VerifiedHolidays.holiday?` — check if a date is a Japanese national holiday
-- `VerifiedHolidays.between` — list holidays in a date range
-- `VerifiedHolidays.name` — get the holiday name for a date
-- `VerifiedHolidays.year` — list all holidays for a given year
-- `VerifiedHolidays.verify!` — verify built-in data against Cabinet Office CSV
-- `VerifiedHolidays::Holiday` — holiday data class with `name_en`, `wday_name`
-- holiday_jp drop-in compatibility via `require 'verified_holidays/holiday_jp_compat'`
-- Weekly CI verification against Cabinet Office official data
-- Holiday data from 1955 to 2027 (sourced from Cabinet Office CSV)
+### Miscellaneous
+
+* add Auto Release workflow ([#7](https://github.com/verified-holidays/verified_holidays/issues/7)) ([86531e3](https://github.com/verified-holidays/verified_holidays/commit/86531e3ba11712a25b2278fe81e52ed130df99c2))
+* add auto-labeler workflows (file path labeler + branch prefix labeler) ([#8](https://github.com/verified-holidays/verified_holidays/issues/8)) ([7e3edc9](https://github.com/verified-holidays/verified_holidays/commit/7e3edc950daa7e665713da587820c7c6723ff172))
+
+## [0.1.2](https://github.com/verified-holidays/verified_holidays/compare/v0.1.1...v0.1.2) (2026-03-29)
+
+
+### Refactoring
+
+* add `CabinetOffice.presence` to handle blank CSV fields ([#4](https://github.com/verified-holidays/verified_holidays/issues/4)) ([eadc150](https://github.com/verified-holidays/verified_holidays/commit/eadc150ea1f202a5974b2fb5d0539610feedb1f9))
+* inline `CabinetOffice.parse_date` using `Date.strptime` ([#3](https://github.com/verified-holidays/verified_holidays/issues/3)) ([f31d1f9](https://github.com/verified-holidays/verified_holidays/commit/f31d1f91514b0182b941d22925b4698f3af927d2))
+* simplify `Dataset#name` to one-liner ([#4](https://github.com/verified-holidays/verified_holidays/issues/4)) ([eadc150](https://github.com/verified-holidays/verified_holidays/commit/eadc150ea1f202a5974b2fb5d0539610feedb1f9))
+* use `minmax` in `Verifier.filter_local_data` ([#4](https://github.com/verified-holidays/verified_holidays/issues/4)) ([eadc150](https://github.com/verified-holidays/verified_holidays/commit/eadc150ea1f202a5974b2fb5d0539610feedb1f9))
+
+
+### Miscellaneous
+
+* add edge case tests for CSV parsing, Holiday model, Verifier, and main API ([#2](https://github.com/verified-holidays/verified_holidays/issues/2)) ([1b54b72](https://github.com/verified-holidays/verified_holidays/commit/1b54b729206c4ccd719357d4e2c95a3ea66ba4b5))
+* add SimpleCov with 90% minimum coverage threshold (line and branch) ([#2](https://github.com/verified-holidays/verified_holidays/issues/2)) ([1b54b72](https://github.com/verified-holidays/verified_holidays/commit/1b54b729206c4ccd719357d4e2c95a3ea66ba4b5))
+
+## [0.1.1](https://github.com/verified-holidays/verified_holidays/compare/v0.1.0...v0.1.1) (2026-03-23)
+
+
+### Miscellaneous
+
+* move repository to GitHub Organization: `verified-holidays/verified_holidays` ([#1](https://github.com/verified-holidays/verified_holidays/issues/1)) ([ef5ef60](https://github.com/verified-holidays/verified_holidays/commit/ef5ef60f08a6aa81c33ee92082f59e7241226cca))
+* update all repository URLs in gemspec, README badges, and contributing link ([#1](https://github.com/verified-holidays/verified_holidays/issues/1)) ([ef5ef60](https://github.com/verified-holidays/verified_holidays/commit/ef5ef60f08a6aa81c33ee92082f59e7241226cca))
+
+## 0.1.0 (2026-03-20)
+
+
+### Features
+
+* initial release as `verified_holidays` (previously developed as `shukujitsu`) ([c75225d](https://github.com/verified-holidays/verified_holidays/commit/c75225d5add7eb6790da43d00bcf6f3154132196))
+* `VerifiedHolidays.holiday?` — check if a date is a Japanese national holiday ([c75225d](https://github.com/verified-holidays/verified_holidays/commit/c75225d5add7eb6790da43d00bcf6f3154132196))
+* `VerifiedHolidays.between` — list holidays in a date range ([c75225d](https://github.com/verified-holidays/verified_holidays/commit/c75225d5add7eb6790da43d00bcf6f3154132196))
+* `VerifiedHolidays.name` — get the holiday name for a date ([c75225d](https://github.com/verified-holidays/verified_holidays/commit/c75225d5add7eb6790da43d00bcf6f3154132196))
+* `VerifiedHolidays.year` — list all holidays for a given year ([c75225d](https://github.com/verified-holidays/verified_holidays/commit/c75225d5add7eb6790da43d00bcf6f3154132196))
+* `VerifiedHolidays.verify!` — verify built-in data against Cabinet Office CSV ([c75225d](https://github.com/verified-holidays/verified_holidays/commit/c75225d5add7eb6790da43d00bcf6f3154132196))
+* `VerifiedHolidays::Holiday` — holiday data class with `name_en`, `wday_name` ([c75225d](https://github.com/verified-holidays/verified_holidays/commit/c75225d5add7eb6790da43d00bcf6f3154132196))
+* holiday_jp drop-in compatibility via `require 'verified_holidays/holiday_jp_compat'` ([c75225d](https://github.com/verified-holidays/verified_holidays/commit/c75225d5add7eb6790da43d00bcf6f3154132196))
+* weekly CI verification against Cabinet Office official data ([c75225d](https://github.com/verified-holidays/verified_holidays/commit/c75225d5add7eb6790da43d00bcf6f3154132196))
+* holiday data from 1955 to 2027 (sourced from Cabinet Office CSV) ([c75225d](https://github.com/verified-holidays/verified_holidays/commit/c75225d5add7eb6790da43d00bcf6f3154132196))
