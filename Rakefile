@@ -33,15 +33,13 @@ namespace :verified_holidays do
 
   desc 'Update local holidays.yml from Cabinet Office CSV'
   task :update do
+    require 'yaml'
     require 'verified_holidays/cabinet_office'
     holidays = VerifiedHolidays::CabinetOffice.fetch
     path = File.expand_path('data/holidays.yml', __dir__)
-    File.open(path, 'w') do |f|
-      f.puts '---'
-      holidays.sort_by { |date, _| date }.each do |date, name|
-        f.puts "#{date}: #{name}"
-      end
-    end
+    # YAML.dump quotes only what needs quoting, so names containing ':' or
+    # starting with '#' round-trip instead of corrupting the file.
+    File.write(path, YAML.dump(holidays.sort_by { |date, _| date }.to_h))
     puts "Updated #{path} with #{holidays.size} holidays"
   end
 end
