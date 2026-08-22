@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.3.3](https://github.com/verified-holidays/verified_holidays/compare/verified_holidays/v0.3.2...verified_holidays/v0.3.3) (2026-08-22)
+
+
+### Bug Fixes
+
+* add English names for holidays present in the dataset ([#32](https://github.com/verified-holidays/verified_holidays/issues/32)) ([1f92812](https://github.com/verified-holidays/verified_holidays/commit/1f92812aea09b9f27d6034556f0576997bdac1db))
+* raise FetchError on a non-success Cabinet Office response ([#28](https://github.com/verified-holidays/verified_holidays/issues/28)) ([6d55172](https://github.com/verified-holidays/verified_holidays/commit/6d55172f5eac707e54f5039cf2fbed3ea224af08))
+* reject a Cabinet Office response that holds no holidays ([#30](https://github.com/verified-holidays/verified_holidays/issues/30)) ([9040ff5](https://github.com/verified-holidays/verified_holidays/commit/9040ff5f089dcecfdad827f480cac5950663fc99))
+* use YAML.dump when writing holidays.yml ([#31](https://github.com/verified-holidays/verified_holidays/issues/31)) ([be2879b](https://github.com/verified-holidays/verified_holidays/commit/be2879b143408af0764057c1e83343f6e9235a9c))
+
+
+### Miscellaneous
+
+* label docs/ branches from the branch prefix ([#33](https://github.com/verified-holidays/verified_holidays/issues/33)) ([b6867f6](https://github.com/verified-holidays/verified_holidays/commit/b6867f6febe29cfc06d423a4b94a948287437c2e))
+* point the tests label at test/ instead of spec/ ([#35](https://github.com/verified-holidays/verified_holidays/issues/35)) ([f86d05b](https://github.com/verified-holidays/verified_holidays/commit/f86d05b29643c5bdb191aef8b17c72a1874b6f39))
+
 ## [0.3.2](https://github.com/verified-holidays/verified_holidays/compare/verified_holidays/v0.3.1...verified_holidays/v0.3.2) (2026-08-22)
 
 
