@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.4](https://github.com/verified-holidays/verified_holidays/compare/verified_holidays/v0.3.3...verified_holidays/v0.3.4) (2026-08-22)
+
+
+### Miscellaneous
+
+* drop support for Ruby 3.1 ([#37](https://github.com/verified-holidays/verified_holidays/issues/37)) ([4ee7b8e](https://github.com/verified-holidays/verified_holidays/commit/4ee7b8e45afeb0a6f66306b5044097605e7fc8a5))
+* replace deprecated SimpleCov.add_filter with skip ([#36](https://github.com/verified-holidays/verified_holidays/issues/36)) ([51e2234](https://github.com/verified-holidays/verified_holidays/commit/51e223446e74b6290393f0022bab7b55edb9286d))
+
 ## [0.3.3](https://github.com/verified-holidays/verified_holidays/compare/verified_holidays/v0.3.2...verified_holidays/v0.3.3) (2026-08-22)
 
 
