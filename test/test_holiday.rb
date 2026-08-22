@@ -45,6 +45,12 @@ class TestHoliday < Minitest::Test
     '天皇誕生日' => "Emperor's Birthday",
     '振替休日' => 'Substitute Holiday',
     '休日' => "Citizens' Holiday",
+    '休日（祝日扱い）' => 'Public Holiday',
+    '体育の日' => 'Health and Sports Day',
+    '体育の日（スポーツの日）' => 'Health and Sports Day (Sports Day)',
+    '即位礼正殿の儀' => 'Enthronement Ceremony',
+    '結婚の儀' => 'Imperial Wedding Ceremony',
+    '大喪の礼' => 'Imperial Funeral Ceremony',
   }.freeze
 
   def test_name_en_for_various_holidays
@@ -57,5 +63,16 @@ class TestHoliday < Minitest::Test
   def test_name_en_returns_nil_for_unknown
     h = VerifiedHolidays::Holiday.new(Date.new(2026, 1, 1), '不明な祝日')
     assert_nil h.name_en
+  end
+
+  # Guards against a holiday name shipped in data/holidays.yml that has no
+  # English translation. `rake verified_holidays:update` can introduce new
+  # names, and this test makes that visible instead of silently returning nil.
+  def test_name_en_is_available_for_every_name_in_the_dataset
+    untranslated = VerifiedHolidays::Dataset.instance.all.each_value.filter_map do |holiday|
+      holiday.name if holiday.name_en.nil?
+    end.uniq
+
+    assert_empty untranslated, "No English name for: #{untranslated.join(', ')}"
   end
 end

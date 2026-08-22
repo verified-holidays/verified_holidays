@@ -23,12 +23,17 @@ module VerifiedHolidays
       '勤労感謝の日' => 'Labor Thanksgiving Day',
       '振替休日' => 'Substitute Holiday',
       '休日' => "Citizens' Holiday",
+      '休日（祝日扱い）' => 'Public Holiday',
       '体育の日' => 'Health and Sports Day',
+      '体育の日（スポーツの日）' => 'Health and Sports Day (Sports Day)',
       '国民の休日' => "Citizens' Holiday",
+      '即位礼正殿の儀' => 'Enthronement Ceremony',
       '即位礼正殿の儀の行われる日' => 'Enthronement Ceremony',
       '即位の日' => 'Enthronement Day',
       '天皇の即位の日及び即位礼正殿の儀の行われる日を休日とする法律' => 'Holiday by Law',
       'みどりの日（国民の休日）' => "Greenery Day (Citizens' Holiday)",
+      '結婚の儀' => 'Imperial Wedding Ceremony',
+      '大喪の礼' => 'Imperial Funeral Ceremony',
     }.freeze
 
     attr_reader :date, :name
