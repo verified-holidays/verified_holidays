@@ -9,12 +9,17 @@ module VerifiedHolidays
   class CabinetOffice
     CSV_URL = 'https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv'
 
+    # Raised when the Cabinet Office CSV cannot be retrieved.
+    class FetchError < StandardError; end
+
     def self.fetch
-      uri = URI.parse(CSV_URL)
-      response = Net::HTTP.get(uri)
+      response = Net::HTTP.get_response(URI.parse(CSV_URL))
+      unless response.is_a?(Net::HTTPSuccess)
+        raise FetchError, "Failed to fetch #{CSV_URL}: HTTP #{response.code} #{response.message}"
+      end
 
       # Remove UTF-8 BOM bytes if present (before encoding conversion)
-      raw = response.b
+      raw = response.body.b
       raw = raw.byteslice(3..) if raw.byteslice(0, 3) == "\xEF\xBB\xBF".b
 
       # Convert from CP932 (Shift_JIS) to UTF-8
