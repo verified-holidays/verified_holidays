@@ -4,7 +4,7 @@ gem:
 
 tests:
   - changed-files:
-      - any-glob-to-any-file: 'spec/**/*'
+      - any-glob-to-any-file: 'test/**/*'
 
 ci:
   - changed-files:
