@@ -31,6 +31,30 @@ class TestCabinetOffice < Minitest::Test
     assert_equal '元日', result[Date.new(2026, 1, 1)]
   end
 
+  def test_fetch_raises_on_http_error_status
+    # The Cabinet Office site answers 404 with an HTML page. Parsed as CSV that
+    # yields zero rows, so without a status check fetch would quietly return {}.
+    stub_request(:get, VerifiedHolidays::CabinetOffice::CSV_URL)
+      .to_return(status: [404, 'Not Found'], body: '<html><body>Not Found</body></html>')
+
+    error = assert_raises(VerifiedHolidays::CabinetOffice::FetchError) do
+      VerifiedHolidays::CabinetOffice.fetch
+    end
+    assert_includes error.message, '404'
+  end
+
+  def test_fetch_raises_on_redirect
+    # Net::HTTP.get_response does not follow redirects, so a moved CSV must not
+    # be mistaken for an empty one.
+    stub_request(:get, VerifiedHolidays::CabinetOffice::CSV_URL)
+      .to_return(status: [301, 'Moved Permanently'], headers: { 'Location' => 'https://example.com/new.csv' })
+
+    error = assert_raises(VerifiedHolidays::CabinetOffice::FetchError) do
+      VerifiedHolidays::CabinetOffice.fetch
+    end
+    assert_includes error.message, '301'
+  end
+
   def test_parse_raises_on_invalid_date_format
     csv = "国民の祝日・休日月日,国民の祝日・休日名称\ninvalid,元日\n"
     assert_raises(Date::Error) do
