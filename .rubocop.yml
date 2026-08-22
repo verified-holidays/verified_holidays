@@ -1,5 +1,5 @@
-# NOTE: この設定は Planning Poker / AnaUme の .rubocop.yml をベースに、
-# gem（非 Rails・minitest）用に調整しています。
+# NOTE: This config is based on the .rubocop.yml from Planning Poker / AnaUme,
+# adjusted for a gem (not Rails, minitest).
 plugins:
   - rubocop-performance
 
