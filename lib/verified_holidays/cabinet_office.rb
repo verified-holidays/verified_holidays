@@ -13,6 +13,13 @@ module VerifiedHolidays
     class FetchError < StandardError; end
 
     def self.fetch
+      holidays = parse(download_csv)
+      raise FetchError, "#{CSV_URL} returned no holidays" if holidays.empty?
+
+      holidays
+    end
+
+    def self.download_csv
       response = Net::HTTP.get_response(URI.parse(CSV_URL))
       unless response.is_a?(Net::HTTPSuccess)
         raise FetchError, "Failed to fetch #{CSV_URL}: HTTP #{response.code} #{response.message}"
@@ -23,10 +30,9 @@ module VerifiedHolidays
       raw = raw.byteslice(3..) if raw.byteslice(0, 3) == "\xEF\xBB\xBF".b
 
       # Convert from CP932 (Shift_JIS) to UTF-8
-      utf8 = raw.force_encoding('CP932').encode('UTF-8')
-
-      parse(utf8)
+      raw.force_encoding('CP932').encode('UTF-8')
     end
+    private_class_method :download_csv
 
     def self.presence(str)
       str&.strip&.then { |s| s unless s.empty? }

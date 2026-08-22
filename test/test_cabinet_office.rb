@@ -55,6 +55,19 @@ class TestCabinetOffice < Minitest::Test
     assert_includes error.message, '301'
   end
 
+  def test_fetch_raises_when_the_response_holds_no_holidays
+    # A 200 that is not the CSV — a maintenance page, say. Every row is skipped
+    # for want of the expected header columns, leaving an empty hash that would
+    # otherwise be taken for "the Cabinet Office publishes no holidays".
+    stub_request(:get, VerifiedHolidays::CabinetOffice::CSV_URL)
+      .to_return(status: 200, body: '<html><body>Under maintenance</body></html>')
+
+    error = assert_raises(VerifiedHolidays::CabinetOffice::FetchError) do
+      VerifiedHolidays::CabinetOffice.fetch
+    end
+    assert_includes error.message, 'no holidays'
+  end
+
   def test_parse_raises_on_invalid_date_format
     csv = "国民の祝日・休日月日,国民の祝日・休日名称\ninvalid,元日\n"
     assert_raises(Date::Error) do
