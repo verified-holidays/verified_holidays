@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.2](https://github.com/verified-holidays/verified_holidays/compare/verified_holidays/v0.3.1...verified_holidays/v0.3.2) (2026-08-22)
+
+
+### Miscellaneous
+
+* write source comments in English ([#26](https://github.com/verified-holidays/verified_holidays/issues/26)) ([aa1879f](https://github.com/verified-holidays/verified_holidays/commit/aa1879f993affaf651f4b8d56277964c617b1f35))
+
 ## [0.3.1](https://github.com/verified-holidays/verified_holidays/compare/verified_holidays/v0.3.0...verified_holidays/v0.3.1) (2026-04-28)
 
 
