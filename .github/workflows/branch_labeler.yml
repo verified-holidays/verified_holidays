@@ -25,6 +25,7 @@ jobs:
               'fix/': 'bugfix',
               'bugfix/': 'bugfix',
               'chore/': 'chore',
+              'docs/': 'docs',
               'perf/': 'performance',
               'deps/': 'dependencies',
             };
