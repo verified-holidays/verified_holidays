@@ -50,6 +50,21 @@ VerifiedHolidays.year(2026)
 # => [#<VerifiedHolidays::Holiday>, ...]
 ```
 
+### Time zones
+
+A `Time` (or `DateTime`) is converted to a date using its own UTC offset, not
+Japan Standard Time. A UTC time that already falls on a holiday in Japan may
+therefore not be recognised as one:
+
+```ruby
+VerifiedHolidays.holiday?(Time.utc(2025, 12, 31, 15)) # => false (it is 2026-01-01 00:00 JST)
+VerifiedHolidays.holiday?(Time.utc(2025, 12, 31, 15).getlocal("+09:00")) # => true
+```
+
+If your process does not run in JST, convert the time first (for example
+`time.getlocal("+09:00")` or `time.in_time_zone("Tokyo")` with ActiveSupport).
+This matches the behaviour of holiday_jp.
+
 ### Holiday object
 
 ```ruby
