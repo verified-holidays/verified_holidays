@@ -49,6 +49,8 @@ module VerifiedHolidays
         holidays[Date.strptime(date_str, '%Y/%m/%d')] = name
       end
       holidays
+    rescue Date::Error => e
+      raise FetchError, "#{CSV_URL} contains an invalid date: #{e.message}"
     end
   end
 end
