@@ -33,15 +33,38 @@ jobs:
         uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b  # v7
         with:
           script: |
+            const runUrl = `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`;
+
+            // Reuse the open issue from a previous failure instead of opening a new one every week.
+            const { data: openIssues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'data-update',
+              per_page: 1
+            });
+
+            if (openIssues.length > 0) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: openIssues[0].number,
+                body: `Verification failed again on ${new Date().toISOString().split('T')[0]}: [View workflow run](${runUrl})`
+              });
+              return;
+            }
+
             const title = `Holiday data verification failed (${new Date().toISOString().split('T')[0]})`;
             const body = [
-              '## Holiday Data Mismatch Detected',
+              '## Holiday Data Verification Failed',
               '',
               'The weekly verification against the [Cabinet Office CSV](https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv) has failed.',
               '',
-              'Please run `rake verified_holidays:update` to update the local data and submit a PR.',
+              'Check the workflow log: a `MISSING` / `EXTRA` / `MISMATCH` list means the data changed and',
+              '`rake verified_holidays:update` should be run and submitted as a PR. A `FetchError` means the',
+              'CSV could not be retrieved and the run should be retried later.',
               '',
-              `[View workflow run](${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID})`
+              `[View workflow run](${runUrl})`
             ].join('\n');
 
             await github.rest.issues.create({
