@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.6](https://github.com/verified-holidays/verified_holidays/compare/verified_holidays/v0.3.5...verified_holidays/v0.3.6) (2026-08-23)
+
+
+### Bug Fixes
+
+* complete the holiday_jp drop-in compatibility ([#43](https://github.com/verified-holidays/verified_holidays/issues/43)) ([a09a5ee](https://github.com/verified-holidays/verified_holidays/commit/a09a5eeb14e526571e8252b321ecb9c1a1e20ae1))
+
 ## [0.3.5](https://github.com/verified-holidays/verified_holidays/compare/verified_holidays/v0.3.4...verified_holidays/v0.3.5) (2026-08-23)
 
 
