@@ -15,6 +15,7 @@ module VerifiedHolidays
     def all
       @holidays
     end
+    alias holidays all
 
     def between(start_date, last_date)
       start_date = to_date(start_date)
@@ -44,6 +45,8 @@ module VerifiedHolidays
       # DateTime is a subclass of Date, so convert it explicitly with .to_date.
       return value.to_date if value.is_a?(DateTime) || value.is_a?(Time)
       return value if value.is_a?(Date)
+      # Anything else that knows how to become a Date (holiday_jp accepts these too).
+      return value.to_date if value.respond_to?(:to_date)
 
       raise ArgumentError, "expected Date, DateTime, or Time, got #{value.class}"
     end

@@ -32,7 +32,7 @@ require "verified_holidays"
 VerifiedHolidays.holiday?(Date.new(2026, 1, 1))  # => true
 VerifiedHolidays.holiday?(Date.new(2026, 3, 19)) # => false
 
-# Date, DateTime, Time are all accepted
+# Date, DateTime, Time (or anything responding to #to_date) are all accepted
 VerifiedHolidays.holiday?(Time.new(2026, 1, 1))  # => true
 
 # Get holidays in a date range

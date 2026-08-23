@@ -36,6 +36,12 @@ class TestVerifiedHolidays < Minitest::Test
     assert VerifiedHolidays.holiday?(Time.new(2026, 1, 1))
   end
 
+  def test_holiday_p_accepts_objects_responding_to_to_date
+    date_like = Struct.new(:to_date).new(Date.new(2026, 1, 1))
+    assert VerifiedHolidays.holiday?(date_like)
+    assert_equal '元日', VerifiedHolidays.name(date_like)
+  end
+
   def test_mountain_day_from_2016
     refute VerifiedHolidays.holiday?(Date.new(2015, 8, 11))
     assert VerifiedHolidays.holiday?(Date.new(2016, 8, 11))
