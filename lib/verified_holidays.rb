@@ -23,6 +23,11 @@ module VerifiedHolidays
     Dataset.instance.year(year)
   end
 
+  # holiday_jp compatibility: HolidayJp.holidays returns the collection object.
+  def self.holidays
+    Dataset.instance
+  end
+
   def self.verify!
     Verifier.verify!
   end
