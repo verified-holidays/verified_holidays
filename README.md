@@ -102,7 +102,7 @@ result.mismatched  # => entries with different names
 
 If the Cabinet Office responds with anything other than success — an outage, a
 moved file, a redirect — or answers with something that holds no holidays at
-all, `verify!` raises `VerifiedHolidays::CabinetOffice::FetchError` rather than
+all or contains a date it cannot parse, `verify!` raises `VerifiedHolidays::CabinetOffice::FetchError` rather than
 reporting the data as mismatched.
 
 Or via Rake:

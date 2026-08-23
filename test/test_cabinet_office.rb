@@ -70,9 +70,10 @@ class TestCabinetOffice < Minitest::Test
 
   def test_parse_raises_on_invalid_date_format
     csv = "国民の祝日・休日月日,国民の祝日・休日名称\ninvalid,元日\n"
-    assert_raises(Date::Error) do
+    error = assert_raises(VerifiedHolidays::CabinetOffice::FetchError) do
       VerifiedHolidays::CabinetOffice.parse(csv)
     end
+    assert_includes error.message, 'invalid date'
   end
 
   def test_fetch_handles_bom
