@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.5](https://github.com/verified-holidays/verified_holidays/compare/verified_holidays/v0.3.4...verified_holidays/v0.3.5) (2026-08-23)
+
+
+### Miscellaneous
+
+* stop opening a new issue for every failed weekly verification ([#41](https://github.com/verified-holidays/verified_holidays/issues/41)) ([85e0c0a](https://github.com/verified-holidays/verified_holidays/commit/85e0c0a63ab55e473a4174d2b83ea3a57150d163))
+
 ## [0.3.4](https://github.com/verified-holidays/verified_holidays/compare/verified_holidays/v0.3.3...verified_holidays/v0.3.4) (2026-08-22)
 
 
