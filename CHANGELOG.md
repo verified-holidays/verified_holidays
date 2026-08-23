@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.7](https://github.com/verified-holidays/verified_holidays/compare/verified_holidays/v0.3.6...verified_holidays/v0.3.7) (2026-08-23)
+
+
+### Bug Fixes
+
+* raise FetchError when the Cabinet Office CSV holds an invalid date ([#45](https://github.com/verified-holidays/verified_holidays/issues/45)) ([3bde219](https://github.com/verified-holidays/verified_holidays/commit/3bde219754ea301a26605f7b9de50a8244cfd636))
+
 ## [0.3.6](https://github.com/verified-holidays/verified_holidays/compare/verified_holidays/v0.3.5...verified_holidays/v0.3.6) (2026-08-23)
 
 
